@@ -1,15 +1,10 @@
-export async function healthRoutes(app: any) {
+import type { FastifyInstance } from "fastify";
 
-    app.get("/health", async () => {
-
-        return {
-
-            status:"ok",
-
-            service:"Athena API"
-
-        }
-
-    })
-
+export async function healthRoutes(app: FastifyInstance) {
+  app.get("/health", async () => {
+    return {
+      status: "ok",
+      service: "Athena API",
+    };
+  });
 }
