@@ -1,10 +1,18 @@
-import type { FastifyInstance } from "fastify";
+import type { FastifyPluginAsync } from "fastify";
+import { successResponse } from "../lib/http.js";
 
-export async function healthRoutes(app: FastifyInstance) {
+export const healthRoutes: FastifyPluginAsync = async (app) => {
   app.get("/health", async () => {
-    return {
+    return successResponse({
       status: "ok",
       service: "Athena API",
-    };
+    });
   });
-}
+
+  app.get("/api/v1/health", async () => {
+    return successResponse({
+      status: "ok",
+      service: "Athena API",
+    });
+  });
+};

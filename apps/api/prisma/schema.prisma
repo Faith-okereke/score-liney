@@ -1,22 +1,22 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
+  engineType = "binary"
 }
 
 datasource db {
   provider = "postgresql"
 }
+
 model Match {
+  id            Int      @id @default(autoincrement())
+  externalId    Int      @unique
+  name          String
+  homeTeamName  String
+  awayTeamName  String
+  startTime     DateTime
+  status        String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-  id String @id
-
-  homeTeam String
-
-  awayTeam String
-
+  @@index([status, startTime])
 }

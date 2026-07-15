@@ -1,5 +1,7 @@
 import type { FastifyPluginAsync, FastifyReply } from "fastify";
+import { env } from "../../config/env.js";
 import { redis } from "../../plugin/redis.js";
+import { failureResponse, successResponse, type ApiSuccessResponse } from "../../lib/http.js";
 import { TxLineClient } from "./client/txline.client.js";
 import { activateSubscription } from "./auth/activate.js";
 import { startGuestSession } from "./auth/guest.js";
@@ -9,22 +11,10 @@ import {
   txLineAuthStatusSchema,
   type TxLineActivationRequest,
 } from "./txline.schema.js";
-import { env } from "../../config/env.js";
 
 interface TxLineModuleOptions {
   apiOrigin?: string;
   apiTokenKey?: string;
-}
-
-interface ApiSuccessResponse<T> {
-  success: true;
-  data: T;
-}
-
-interface ApiFailureResponse {
-  success: false;
-  message: string;
-  error: string;
 }
 
 interface GuestSessionData {
@@ -48,25 +38,16 @@ interface AuthStatusData {
 const DEFAULT_API_TOKEN_KEY = "txline:api-token";
 const V1_PREFIX = "/api/v1/txline";
 
-function successResponse<T>(data: T): ApiSuccessResponse<T> {
-  return {
-    success: true,
-    data,
-  };
+async function sendFailure(
+  reply: FastifyReply,
+  statusCode: number,
+  message: string,
+  error: string
+): Promise<void> {
+  await reply.status(statusCode).send(failureResponse(message, error));
 }
 
-function failureResponse(message: string, error: string): ApiFailureResponse {
-  return {
-    success: false,
-    message,
-    error,
-  };
-}
-
-export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
-  app,
-  options
-) => {
+export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (app, options) => {
   const apiOrigin = options.apiOrigin ?? env.TXLINE_API_ORIGIN ?? "https://txline.txodds.com";
   const apiTokenKey = options.apiTokenKey ?? DEFAULT_API_TOKEN_KEY;
 
@@ -99,7 +80,7 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
     guestJwt = response.token;
     app.log.info("TxLINE guest session started");
 
-    return successResponse<GuestSessionData>(response);
+    return successResponse(response);
   }
 
   async function activateTokenRoute(
@@ -107,11 +88,11 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
     reply: FastifyReply
   ): Promise<ApiSuccessResponse<ActivationData> | void> {
     if (!guestJwt) {
-      reply.status(409).send(
-        failureResponse(
-          "Guest session required",
-          "Start a guest session before activating a token."
-        )
+      await sendFailure(
+        reply,
+        409,
+        "Guest session required",
+        "Start a guest session before activating a token."
       );
       return;
     }
@@ -122,20 +103,18 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
     await redis.set(apiTokenKey, response.token);
     app.log.info("TxLINE token activated and stored");
 
-    return successResponse<ActivationData>(response);
+    return successResponse(response);
   }
 
-  async function testRoute(
-    reply: FastifyReply
-  ): Promise<ApiSuccessResponse<TestData> | void> {
+  async function testRoute(reply: FastifyReply): Promise<ApiSuccessResponse<TestData> | void> {
     const apiToken = await getStoredApiToken();
 
     if (!guestJwt || !apiToken) {
-      reply.status(409).send(
-        failureResponse(
-          "TxLINE auth incomplete",
-          "Start a guest session and activate a token first."
-        )
+      await sendFailure(
+        reply,
+        409,
+        "TxLINE auth incomplete",
+        "Start a guest session and activate a token first."
       );
       return;
     }
@@ -143,7 +122,7 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
     const client = createClient(apiToken);
     const fixtures = await getFixtures(client);
 
-    return successResponse<TestData>({
+    return successResponse({
       fixtures,
     });
   }
@@ -156,7 +135,7 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
       ready: guestJwt !== null && apiToken !== null,
     });
 
-    return successResponse<AuthStatusData>(status);
+    return successResponse(status);
   }
 
   app.post(`${V1_PREFIX}/auth/guest/start`, async () => {
@@ -167,11 +146,11 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
     const parsedBody = txLineActivationRequestSchema.safeParse(request.body);
 
     if (!parsedBody.success) {
-      return reply.status(400).send(
-        failureResponse(
-          "Invalid activation payload",
-          "Expected txSig, walletSignature, and leagues[]"
-        )
+      return sendFailure(
+        reply,
+        400,
+        "Invalid activation payload",
+        "Expected txSig, walletSignature, and leagues[]."
       );
     }
 
@@ -182,30 +161,7 @@ export const txlineModule: FastifyPluginAsync<TxLineModuleOptions> = async (
     return authStatusRoute();
   });
 
-  app.get("/api/v1/test", async (_request, reply) => {
-    return testRoute(reply);
-  });
-
-  app.post("/api/txline/auth/guest/start", async () => {
-    return startGuestSessionRoute();
-  });
-
-  app.post("/api/txline/token/activate", async (request, reply) => {
-    const parsedBody = txLineActivationRequestSchema.safeParse(request.body);
-
-    if (!parsedBody.success) {
-      return reply.status(400).send(
-        failureResponse(
-          "Invalid activation payload",
-          "Expected txSig, walletSignature, and leagues[]"
-        )
-      );
-    }
-
-    return activateTokenRoute(parsedBody.data, reply);
-  });
-
-  app.get("/api/test", async (_request, reply) => {
+  app.get(`${V1_PREFIX}/test`, async (_request, reply) => {
     return testRoute(reply);
   });
 };
