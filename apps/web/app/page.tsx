@@ -1,11 +1,6 @@
-import { TxLineAuthPanel } from "./txline-auth-panel";
-import styles from "./page.module.css";
+import { Dashboard } from "./components/dashboard/dashboard";
 
 export default function Home() {
-  return (
-    <main className={styles.page}>
-      <TxLineAuthPanel />
-    </main>
-  );
+  return <Dashboard />;
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./page.module.css";
 import {
   connectWallet,
@@ -126,7 +126,7 @@ export function TxLineAuthPanel() {
     return "Mainnet transactions need real SOL for fees and any on-chain account creation.";
   }, [network]);
 
-  async function refreshStatus() {
+  const refreshStatus = useCallback(async (): Promise<void> => {
     setBusy("refresh");
     setFeedback("");
 
@@ -149,11 +149,11 @@ export function TxLineAuthPanel() {
     } finally {
       setBusy(null);
     }
-  }
+  }, [apiBaseUrl]);
 
   useEffect(() => {
     void refreshStatus();
-  }, []);
+  }, [refreshStatus]);
 
   async function startGuestSession() {
     setBusy("guest");

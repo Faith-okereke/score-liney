@@ -12,8 +12,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "TxLINE Auth Workbench",
-  description: "Frontend panel for starting TxLINE guest sessions and activating API tokens.",
+  title: "Athena · Sports Intelligence",
+  description: "Explainable, real-time sports intelligence powered by autonomous AI agents.",
 };
 
 export default function RootLayout({
