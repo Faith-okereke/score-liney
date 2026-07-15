@@ -11,7 +11,6 @@ import {
   Transaction,
   TransactionInstruction,
   SendTransactionError,
-  type VersionedTransaction,
 } from "@solana/web3.js";
 
 export type TxLineNetwork = "devnet" | "mainnet";

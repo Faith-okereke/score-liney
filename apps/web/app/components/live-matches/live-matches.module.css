@@ -1,0 +1,1643 @@
+.liveContent {
+  padding-top: 26px;
+}
+
+.pageIntro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.pageIntro > div:first-child > p {
+  margin-bottom: 7px;
+  color: var(--text-subtle);
+  font-size: 0.67rem;
+  font-weight: 680;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.pageIntro h2 {
+  color: #f2f8ff;
+  font-size: clamp(1.4rem, 2.1vw, 1.82rem);
+  font-weight: 650;
+  letter-spacing: -0.047em;
+}
+
+.pageIntro > div:first-child > span {
+  display: block;
+  max-width: 630px;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+.connectionStatus {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+  padding: 9px 11px;
+  border: 1px solid rgba(77, 224, 160, 0.18);
+  border-radius: 7px;
+  color: #7da993;
+  font-size: 0.65rem;
+  background: rgba(77, 224, 160, 0.055);
+}
+
+.connectionStatus i,
+.liveLabel i,
+.fixtureMinuteLive i,
+.matchLabel i,
+.centralScore p i {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(77, 224, 160, 0.09);
+}
+
+.connectionStatus strong {
+  color: #b2e6cb;
+  font-weight: 650;
+}
+
+.fixtureRail {
+  padding: 13px;
+  margin-bottom: 13px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: linear-gradient(145deg, rgba(15, 31, 50, 0.98), rgba(10, 24, 40, 0.98));
+}
+
+.fixtureRailHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 2px 10px;
+}
+
+.fixtureRailHeading > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fixtureRailHeading > div > strong {
+  color: #d7e7f5;
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.liveLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #9bd9b8;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.liveLabel i {
+  width: 5px;
+  height: 5px;
+}
+
+.fixtureRailHeading button,
+.analysisPanelHeader > button,
+.simpleIconButton,
+.compareAgentsButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.64rem;
+  font-weight: 620;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fixtureRailHeading button:hover,
+.analysisPanelHeader > button:hover,
+.compareAgentsButton:hover {
+  color: #e6f3ff;
+}
+
+.fixtureList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.fixtureCard {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 50px;
+  padding: 8px;
+  border: 1px solid rgba(138, 170, 205, 0.12);
+  border-radius: 7px;
+  color: var(--text-muted);
+  text-align: left;
+  background: rgba(5, 17, 29, 0.28);
+  cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+
+.fixtureCard:hover {
+  border-color: rgba(120, 177, 230, 0.28);
+  background: rgba(28, 65, 104, 0.24);
+}
+
+.fixtureCardActive {
+  border-color: rgba(54, 165, 255, 0.37);
+  background: rgba(34, 95, 152, 0.22);
+  box-shadow: inset 2px 0 0 var(--blue);
+}
+
+.fixtureCrest {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #eaf5ff;
+  font-size: 0.48rem;
+  font-weight: 800;
+  background: #275f94;
+}
+
+.fixtureTeams {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.fixtureTeams strong {
+  overflow: hidden;
+  color: #d6e7f6;
+  font-size: 0.62rem;
+  font-weight: 630;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fixtureTeams strong b {
+  color: #f2f8ff;
+  font-weight: 720;
+}
+
+.fixtureTeams small {
+  color: var(--text-subtle);
+  font-size: 0.55rem;
+}
+
+.fixtureMinute {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-subtle);
+  font-size: 0.56rem;
+  font-weight: 620;
+  white-space: nowrap;
+}
+
+.fixtureMinuteLive {
+  color: #a2ddbd;
+}
+
+.fixtureMinuteLive i {
+  width: 4px;
+  height: 4px;
+}
+
+.commandGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.54fr) minmax(330px, 0.82fr);
+  gap: 13px;
+  margin-bottom: 13px;
+}
+
+.commandPanel,
+.insightPanel,
+.analysisPanel {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: linear-gradient(145deg, rgba(15, 31, 50, 0.98), rgba(10, 24, 40, 0.98));
+}
+
+.commandPanel {
+  overflow: hidden;
+}
+
+.commandPanelHeader,
+.analysisPanelHeader,
+.subsectionHeader,
+.insightPanelHeader,
+.scoreboard,
+.scoreTeam,
+.matchSummaryBar,
+.matchPanelActions,
+.consensusDisplay,
+.liveProbabilityRows > div,
+.predictionEvidence,
+.oddsSummary,
+.oddsLegend,
+.oddsInsight,
+.historyBar > div,
+.agentOpinionTop,
+.agentOpinionFooter {
+  display: flex;
+  align-items: center;
+}
+
+.commandPanelHeader {
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px 0;
+}
+
+.matchLabel,
+.analysisPanelHeader > div > span,
+.subsectionHeader > div > span,
+.insightPanelHeader > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 7px;
+  color: var(--text-subtle);
+  font-size: 0.6rem;
+  font-weight: 720;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.matchLabel i {
+  width: 5px;
+  height: 5px;
+}
+
+.matchLabel + h3,
+.commandPanelHeader h3,
+.analysisPanelHeader h3 {
+  color: #edf6ff;
+  font-size: 0.97rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.matchPanelActions {
+  flex: 0 0 auto;
+  gap: 7px;
+}
+
+.matchPanelActions button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 29px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.62rem;
+  font-weight: 630;
+  background: rgba(4, 15, 28, 0.26);
+  cursor: pointer;
+}
+
+.matchPanelActions button:hover {
+  border-color: var(--line-strong);
+  color: #e6f3ff;
+}
+
+.matchPanelActions .primaryPanelAction {
+  border-color: rgba(54, 165, 255, 0.34);
+  color: #d8efff;
+  background: rgba(54, 165, 255, 0.12);
+}
+
+.scoreboard {
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 43px 23px;
+}
+
+.scoreTeam {
+  gap: 11px;
+  min-width: 0;
+}
+
+.scoreTeam > div {
+  display: grid;
+  gap: 4px;
+}
+
+.scoreTeam strong {
+  color: #e7f3ff;
+  font-size: 0.82rem;
+  font-weight: 660;
+}
+
+.scoreTeam small {
+  color: var(--text-subtle);
+  font-size: 0.6rem;
+}
+
+.scoreTeamAway {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.largeCrest {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 47px;
+  height: 47px;
+  border: 2px solid rgba(236, 249, 255, 0.12);
+  border-radius: 50%;
+  color: #f9fcff;
+  font-size: 0.63rem;
+  font-weight: 800;
+}
+
+.argentinaCrest {
+  background: linear-gradient(165deg, #98d8ff, #54aaf0 47%, #f2dd75 48%, #f2dd75 53%, #98d8ff 54%);
+}
+
+.moroccoCrest {
+  background: linear-gradient(165deg, #e36269, #a92535);
+}
+
+.centralScore {
+  display: grid;
+  justify-items: center;
+  flex: 0 0 auto;
+}
+
+.centralScore > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.centralScore > div strong {
+  color: #f6fbff;
+  font-size: 2.4rem;
+  font-weight: 660;
+  letter-spacing: -0.08em;
+}
+
+.centralScore > div span {
+  color: #68819c;
+  font-size: 1.2rem;
+}
+
+.centralScore p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  color: #a5dcbf;
+  font-size: 0.66rem;
+  font-weight: 690;
+}
+
+.centralScore p i {
+  width: 5px;
+  height: 5px;
+}
+
+.centralScore small {
+  margin-top: 5px;
+  color: var(--text-subtle);
+  font-size: 0.59rem;
+}
+
+.matchSummaryBar {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(5, 16, 28, 0.26);
+}
+
+.matchSummaryBar > div {
+  display: grid;
+  gap: 4px;
+}
+
+.matchSummaryBar span {
+  color: var(--text-subtle);
+  font-size: 0.54rem;
+  font-weight: 670;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.matchSummaryBar strong {
+  color: #c7dbe9;
+  font-size: 0.62rem;
+  font-weight: 630;
+}
+
+.commandContentGrid {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.77fr) minmax(0, 1.23fr);
+}
+
+.eventsSection,
+.momentumSection {
+  min-width: 0;
+  padding: 17px 18px 18px;
+}
+
+.eventsSection {
+  border-right: 1px solid var(--line);
+}
+
+.subsectionHeader {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.subsectionHeader h4 {
+  color: #dceaf8;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.subsectionHeader > div > span {
+  margin-bottom: 5px;
+  font-size: 0.55rem;
+}
+
+.subsectionHeader > button,
+.commentaryPanel button,
+.viewRationale {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  color: #a6cfee;
+  font: inherit;
+  font-size: 0.6rem;
+  font-weight: 630;
+  background: transparent;
+  cursor: pointer;
+}
+
+.subsectionHeader > button:hover,
+.commentaryPanel button:hover,
+.viewRationale:hover {
+  color: #e3f2ff;
+}
+
+.eventList {
+  display: grid;
+  margin-top: 15px;
+}
+
+.eventItem {
+  display: grid;
+  grid-template-columns: 26px 24px minmax(0, 1fr);
+  gap: 8px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+}
+
+.eventItem time {
+  padding-top: 4px;
+  color: var(--text-subtle);
+  font-size: 0.58rem;
+  font-weight: 640;
+}
+
+.eventIcon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.eventPositive { color: var(--green); background: var(--green-soft); }
+.eventWarning { color: var(--amber); background: var(--amber-soft); }
+.eventNegative { color: var(--red); background: var(--red-soft); }
+.eventNeutral { color: var(--blue); background: var(--blue-soft); }
+.eventReasoning { color: var(--purple); background: var(--purple-soft); }
+
+.eventItem strong {
+  color: #d9e8f5;
+  font-size: 0.62rem;
+  font-weight: 640;
+  line-height: 1.35;
+}
+
+.eventItem p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 0.59rem;
+  line-height: 1.42;
+}
+
+.momentumValue {
+  flex: 0 0 auto;
+  padding: 4px 6px;
+  border: 1px solid rgba(54, 165, 255, 0.21);
+  border-radius: 4px;
+  color: #91ccff;
+  font-size: 0.57rem;
+  font-weight: 700;
+  background: rgba(54, 165, 255, 0.09);
+}
+
+.momentumLegend,
+.oddsLegend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--text-subtle);
+  font-size: 0.56rem;
+}
+
+.momentumLegend span,
+.oddsLegend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.momentumLegend i,
+.oddsLegend i {
+  width: 8px;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.argentinaLegend,
+.oddsArgentina { background: var(--blue); }
+.moroccoLegend,
+.oddsMorocco { background: var(--red); }
+.oddsDraw { background: #92a5ba; }
+
+.liveMomentumChart {
+  display: block;
+  width: 100%;
+  height: 146px;
+  margin-top: 6px;
+  overflow: visible;
+}
+
+.liveChartGrid,
+.oddsGrid {
+  fill: none;
+  stroke: rgba(145, 175, 205, 0.12);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.argentinaMomentumLine,
+.moroccoMomentumLine,
+.oddsArgentinaLine,
+.oddsDrawLine,
+.oddsMoroccoLine {
+  fill: none;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.argentinaMomentumLine,
+.oddsArgentinaLine { stroke: var(--blue); }
+.moroccoMomentumLine,
+.oddsMoroccoLine { stroke: var(--red); }
+.oddsDrawLine { stroke: #8298ae; }
+
+.liveMarkerLine,
+.oddsMarker {
+  stroke: rgba(177, 149, 255, 0.72);
+  stroke-dasharray: 3 3;
+  stroke-width: 1;
+}
+
+.liveMarkerPoint,
+.oddsMarkerPoint {
+  fill: var(--purple);
+  stroke: #e7e0ff;
+  stroke-width: 2;
+}
+
+.chartTimeScale,
+.oddsTimeScale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-subtle);
+  font-size: 0.52rem;
+}
+
+.liveStatCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.liveStatCards > div {
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid rgba(138, 170, 205, 0.1);
+  border-radius: 6px;
+  background: rgba(5, 17, 29, 0.22);
+}
+
+.liveStatCards span {
+  color: var(--text-subtle);
+  font-size: 0.5rem;
+  font-weight: 650;
+}
+
+.liveStatCards strong {
+  color: #d6e8f8;
+  font-size: 0.61rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.liveStatCards strong i {
+  color: #617890;
+  font-style: normal;
+}
+
+.insightStack {
+  display: grid;
+  align-content: start;
+  gap: 13px;
+}
+
+.insightPanel {
+  padding: 16px;
+}
+
+.insightPanelHeader {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.insightPanelHeader > span:first-child {
+  margin: 0;
+  font-size: 0.58rem;
+}
+
+.insightPanelHeader > span:first-child svg,
+.analysisPanelHeader > div > span svg {
+  color: var(--blue);
+}
+
+.insightPanelHeader button,
+.simpleIconButton {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.insightPanelHeader button:hover,
+.simpleIconButton:hover {
+  border-color: var(--line);
+  color: #e5f2ff;
+  background: rgba(118, 161, 205, 0.08);
+}
+
+.consensusDisplay {
+  gap: 14px;
+  padding: 17px 0 15px;
+}
+
+.liveConsensusRing {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: conic-gradient(var(--purple) 0 78%, rgba(134, 162, 191, 0.14) 78% 100%);
+}
+
+.liveConsensusRing > div {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #0f2034;
+}
+
+.liveConsensusRing strong {
+  color: #f0ecff;
+  font-size: 1.17rem;
+  font-weight: 690;
+  letter-spacing: -0.05em;
+}
+
+.liveConsensusRing span {
+  margin-top: -3px;
+  color: #899bb2;
+  font-size: 0.49rem;
+}
+
+.consensusDisplay > div:last-child {
+  display: grid;
+  gap: 5px;
+}
+
+.consensusDisplay small {
+  color: var(--purple);
+  font-size: 0.55rem;
+  font-weight: 720;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.consensusDisplay > div:last-child > strong {
+  color: #e6f1fb;
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.consensusDisplay p {
+  color: var(--text-muted);
+  font-size: 0.59rem;
+  line-height: 1.42;
+}
+
+.liveProbabilityRows {
+  display: grid;
+  gap: 9px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.liveProbabilityRows > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 8px;
+  color: var(--text-muted);
+  font-size: 0.58rem;
+}
+
+.liveProbabilityRows strong {
+  color: #d5e7f5;
+  font-weight: 650;
+}
+
+.liveProbabilityRows i {
+  display: block;
+  grid-column: 1 / -1;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(135, 161, 188, 0.12);
+}
+
+.liveProbabilityRows i b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.argentinaProbability { width: 78%; background: var(--blue); }
+.drawProbability { width: 15%; background: #8196ac; }
+.moroccoProbability { width: 7%; background: var(--red); }
+
+.viewRationale {
+  width: 100%;
+  padding-top: 12px;
+  margin-top: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.predictionPanel {
+  background: linear-gradient(145deg, rgba(20, 39, 63, 0.99), rgba(13, 28, 47, 0.99));
+}
+
+.highConfidenceBadge {
+  padding: 3px 5px;
+  border: 1px solid rgba(77, 224, 160, 0.18);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 0.54rem;
+  font-weight: 720;
+  background: rgba(77, 224, 160, 0.08);
+}
+
+.predictionTitle {
+  display: block;
+  margin-top: 14px;
+  color: #eaf5ff;
+  font-size: 0.83rem;
+  font-weight: 660;
+}
+
+.predictionDescription {
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  line-height: 1.48;
+}
+
+.predictionEvidence {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 13px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: #a7bacd;
+  font-size: 0.58rem;
+}
+
+.predictionEvidence span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.predictionEvidence i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.commentaryPanel {
+  background: linear-gradient(145deg, rgba(28, 35, 61, 0.98), rgba(17, 27, 49, 0.98));
+}
+
+.commentaryPanel .insightPanelHeader > span:first-child svg {
+  color: var(--purple);
+}
+
+.commentaryPanel time {
+  color: var(--text-subtle);
+  font-size: 0.55rem;
+}
+
+.commentaryPanel p {
+  margin-top: 12px;
+  color: #becce0;
+  font-size: 0.65rem;
+  line-height: 1.55;
+}
+
+.commentaryPanel button {
+  margin-top: 12px;
+}
+
+.analysisSection {
+  display: grid;
+  gap: 13px;
+}
+
+.analysisTopGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.54fr) minmax(330px, 0.82fr);
+  gap: 13px;
+}
+
+.analysisPanel {
+  padding: 17px;
+  overflow: hidden;
+}
+
+.analysisPanelHeader {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.analysisPanelHeader > div > span {
+  margin-bottom: 6px;
+  font-size: 0.58rem;
+}
+
+.analysisPanelHeader h3 {
+  font-size: 0.87rem;
+}
+
+.analysisPanelHeader > button:not(.simpleIconButton) {
+  padding: 5px 6px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: rgba(5, 16, 28, 0.2);
+}
+
+.oddsSummary {
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.oddsSummary > div {
+  display: grid;
+  gap: 4px;
+}
+
+.oddsSummary span {
+  color: var(--text-subtle);
+  font-size: 0.57rem;
+}
+
+.oddsSummary strong {
+  color: #e6f2fb;
+  font-size: 0.9rem;
+  font-weight: 660;
+  letter-spacing: -0.03em;
+}
+
+.oddsSummary small {
+  color: var(--text-muted);
+  font-size: 0.55rem;
+}
+
+.oddsSummary small i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 3px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.oddsChartWrap {
+  padding: 13px 0 10px;
+  margin-top: 13px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.oddsLegend {
+  margin-top: 0;
+}
+
+.oddsChart {
+  display: block;
+  width: 100%;
+  height: 142px;
+  margin: 7px 0 2px;
+  overflow: visible;
+}
+
+.oddsInsight {
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 13px;
+  color: var(--text-muted);
+}
+
+.oddsInsight svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--purple);
+}
+
+.oddsInsight p {
+  font-size: 0.61rem;
+  line-height: 1.48;
+}
+
+.oddsInsight strong {
+  color: #c9bafa;
+  font-weight: 650;
+}
+
+.historyPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.historyLead {
+  margin-top: 17px;
+  color: var(--text-muted);
+  font-size: 0.63rem;
+  line-height: 1.48;
+}
+
+.historyBars {
+  display: grid;
+  gap: 13px;
+  margin-top: 18px;
+}
+
+.historyBar {
+  display: grid;
+  gap: 5px;
+}
+
+.historyBar > div {
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.61rem;
+}
+
+.historyBar > div > strong {
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.59rem;
+  font-weight: 710;
+}
+
+.historyBar > i {
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(135, 161, 188, 0.11);
+}
+
+.historyBar > i b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.historyBar > i b.agentPositive { background: var(--green); }
+.historyBar > i b.agentWarning { background: var(--amber); }
+.historyBar > i b.agentNegative { background: var(--red); }
+.historyBar > i b.agentNeutral { background: var(--blue); }
+.historyBar > i b.agentReasoning { background: var(--purple); }
+
+.historyBar:nth-child(1) > i b { width: 71%; }
+.historyBar:nth-child(2) > i b { width: 17%; }
+.historyBar:nth-child(3) > i b { width: 12%; }
+
+.historyBar small {
+  color: var(--text-subtle);
+  font-size: 0.54rem;
+}
+
+.historyCallout {
+  margin-top: auto;
+  padding: 11px;
+  border: 1px solid rgba(177, 149, 255, 0.15);
+  border-radius: 7px;
+  background: rgba(177, 149, 255, 0.065);
+}
+
+.historyCallout span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--purple);
+  font-size: 0.55rem;
+  font-weight: 710;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.historyCallout p {
+  color: #c9c0e9;
+  font-size: 0.6rem;
+  line-height: 1.45;
+}
+
+.agentOpinionsPanel {
+  padding-bottom: 14px;
+}
+
+.compareAgentsButton {
+  color: #a6cfee;
+}
+
+.agentOpinionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.agentOpinion {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 152px;
+  padding: 11px;
+  border: 1px solid rgba(138, 170, 205, 0.11);
+  border-radius: 7px;
+  background: rgba(5, 17, 29, 0.23);
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+
+.agentOpinion:hover {
+  border-color: rgba(138, 184, 228, 0.24);
+  background: rgba(29, 66, 106, 0.13);
+}
+
+.agentOpinionTop {
+  gap: 8px;
+}
+
+.liveAgentAvatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  font-size: 0.53rem;
+  font-weight: 780;
+}
+
+.agentOpinionTop > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.agentOpinionTop strong {
+  color: #dcebf8;
+  font-size: 0.63rem;
+  font-weight: 650;
+}
+
+.agentOpinionTop small {
+  overflow: hidden;
+  color: var(--text-subtle);
+  font-size: 0.52rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agentOpinionConfidence {
+  flex: 0 0 auto;
+  padding: 3px 4px;
+  border-radius: 4px;
+  font-size: 0.54rem;
+  font-weight: 730;
+}
+
+.agentPositive { color: var(--green); }
+.agentWarning { color: var(--amber); }
+.agentNegative { color: var(--red); }
+.agentNeutral { color: var(--blue); }
+.agentReasoning { color: var(--purple); }
+
+.liveAgentAvatar.agentPositive,
+.agentOpinionConfidence.agentPositive { background: var(--green-soft); }
+.liveAgentAvatar.agentWarning,
+.agentOpinionConfidence.agentWarning { background: var(--amber-soft); }
+.liveAgentAvatar.agentNegative,
+.agentOpinionConfidence.agentNegative { background: var(--red-soft); }
+.liveAgentAvatar.agentNeutral,
+.agentOpinionConfidence.agentNeutral { background: var(--blue-soft); }
+.liveAgentAvatar.agentReasoning,
+.agentOpinionConfidence.agentReasoning { background: var(--purple-soft); }
+
+.agentOpinion h4 {
+  margin-top: 12px;
+  color: #d8e9f8;
+  font-size: 0.66rem;
+  font-weight: 650;
+}
+
+.agentOpinion > p {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: 0.58rem;
+  line-height: 1.43;
+}
+
+.agentOpinionFooter {
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 9px;
+}
+
+.agentOpinionFooter span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-subtle);
+  font-size: 0.52rem;
+}
+
+.agentOpinionFooter span i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.agentOpinionFooter i.agentPositive { background: var(--green); }
+.agentOpinionFooter i.agentWarning { background: var(--amber); }
+.agentOpinionFooter i.agentNegative { background: var(--red); }
+.agentOpinionFooter i.agentNeutral { background: var(--blue); }
+.agentOpinionFooter i.agentReasoning { background: var(--purple); }
+
+.agentOpinionFooter button {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #9ac9ec;
+  background: transparent;
+  cursor: pointer;
+}
+
+.agentOpinionFooter button:hover {
+  border-color: var(--line);
+  background: rgba(118, 161, 205, 0.08);
+}
+
+.loadingPage,
+.errorPage {
+  min-height: 100svh;
+  padding: 34px;
+  color: var(--text);
+  background: var(--canvas, #07111f);
+}
+
+.loadingHeader,
+.loadingFixtures,
+.loadingGrid {
+  display: grid;
+  gap: 13px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.loadingHeader {
+  grid-template-columns: minmax(260px, 0.33fr) minmax(180px, 0.18fr);
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.loadingHeader span,
+.loadingHeader i,
+.loadingFixtures i,
+.loadingGrid > i,
+.loadingGrid > div > i {
+  display: block;
+  border-radius: 9px;
+  background: linear-gradient(100deg, #0e1e31 25%, #152a42 39%, #0e1e31 55%);
+  background-size: 200% 100%;
+  animation: liveMatchesSkeleton 1.4s ease-in-out infinite;
+}
+
+.loadingHeader span { height: 49px; }
+.loadingHeader i { height: 36px; }
+
+.loadingFixtures {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 13px;
+}
+
+.loadingFixtures i { height: 64px; }
+
+.loadingGrid {
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.82fr);
+}
+
+.loadingGrid > i { min-height: 520px; }
+
+.loadingGrid > div {
+  display: grid;
+  gap: 13px;
+}
+
+.loadingGrid > div > i { min-height: 150px; }
+
+@keyframes liveMatchesSkeleton {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.errorPage {
+  display: grid;
+  place-items: center;
+}
+
+.errorPage > div {
+  max-width: 460px;
+  padding: 27px;
+  border: 1px solid var(--line, rgba(151, 180, 214, 0.13));
+  border-radius: 12px;
+  background: #0d1b2d;
+}
+
+.errorPage span {
+  color: var(--amber, #f0b555);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.errorPage h1 {
+  margin-top: 10px;
+  color: #eef6ff;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+
+.errorPage p {
+  margin-top: 9px;
+  color: #91a4ba;
+  font-size: 0.77rem;
+  line-height: 1.55;
+}
+
+.errorPage button {
+  margin-top: 18px;
+  padding: 9px 12px;
+  border: 1px solid rgba(54, 165, 255, 0.36);
+  border-radius: 6px;
+  color: #d8efff;
+  font: inherit;
+  font-size: 0.71rem;
+  font-weight: 650;
+  background: rgba(54, 165, 255, 0.12);
+  cursor: pointer;
+}
+
+@media (max-width: 1250px) {
+  .fixtureList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .commandGrid,
+  .analysisTopGrid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+  }
+
+  .scoreboard {
+    padding-inline: 26px;
+  }
+
+  .commandContentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .eventsSection {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eventList {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+  }
+
+  .agentOpinionGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .commandGrid,
+  .analysisTopGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .insightStack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .consensusDisplay {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .liveConsensusRing {
+    width: 74px;
+    height: 74px;
+  }
+
+  .liveConsensusRing > div {
+    width: 60px;
+    height: 60px;
+  }
+
+  .historyCallout {
+    margin-top: 17px;
+  }
+}
+
+@media (max-width: 790px) {
+  .pageIntro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .connectionStatus {
+    width: 100%;
+  }
+
+  .fixtureList {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreboard {
+    padding-inline: 28px;
+  }
+
+  .insightStack {
+    grid-template-columns: 1fr;
+  }
+
+  .consensusDisplay {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .eventList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .liveContent {
+    padding-top: 17px;
+  }
+
+  .pageIntro h2 {
+    font-size: 1.32rem;
+  }
+
+  .pageIntro > div:first-child > span {
+    font-size: 0.73rem;
+  }
+
+  .fixtureRail {
+    padding: 10px;
+  }
+
+  .fixtureRailHeading > div > strong {
+    display: none;
+  }
+
+  .commandPanelHeader,
+  .analysisPanel,
+  .insightPanel {
+    padding-inline: 13px;
+  }
+
+  .commandPanelHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 14px;
+  }
+
+  .matchPanelActions {
+    width: 100%;
+  }
+
+  .matchPanelActions button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .scoreboard {
+    gap: 7px;
+    padding: 21px 13px 18px;
+  }
+
+  .scoreTeam {
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .scoreTeamAway {
+    flex-direction: column-reverse;
+  }
+
+  .scoreTeam strong {
+    font-size: 0.68rem;
+  }
+
+  .scoreTeam small {
+    font-size: 0.53rem;
+  }
+
+  .largeCrest {
+    width: 37px;
+    height: 37px;
+  }
+
+  .centralScore > div {
+    gap: 7px;
+  }
+
+  .centralScore > div strong {
+    font-size: 1.75rem;
+  }
+
+  .centralScore small {
+    font-size: 0.5rem;
+  }
+
+  .matchSummaryBar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+    padding-inline: 13px;
+  }
+
+  .eventsSection,
+  .momentumSection {
+    padding: 14px 13px;
+  }
+
+  .liveMomentumChart {
+    height: 120px;
+  }
+
+  .liveStatCards {
+    grid-template-columns: 1fr;
+  }
+
+  .agentOpinionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .oddsSummary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .oddsSummary strong {
+    font-size: 0.78rem;
+  }
+
+  .oddsSummary small {
+    font-size: 0.49rem;
+  }
+
+  .oddsChart {
+    height: 113px;
+  }
+
+  .oddsTimeScale span:nth-child(even),
+  .chartTimeScale span:nth-child(even) {
+    display: none;
+  }
+
+  .loadingPage,
+  .errorPage {
+    padding: 18px;
+  }
+
+  .loadingFixtures,
+  .loadingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .loadingFixtures i:nth-child(n + 3) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loadingHeader span,
+  .loadingHeader i,
+  .loadingFixtures i,
+  .loadingGrid > i,
+  .loadingGrid > div > i {
+    animation: none;
+  }
+}
