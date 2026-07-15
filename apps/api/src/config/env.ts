@@ -6,6 +6,8 @@ const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
   REDIS_URL: z.string().min(1),
   TXLINE_API_ORIGIN: z.string().url().optional(),
+  HOST: z.string().default("0.0.0.0"),
+  PORT: z.coerce.number().int().positive().default(3001),
 });
 
 function parseEnvFile(): Record<string, string> {

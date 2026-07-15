@@ -8,7 +8,7 @@ const redisClient = new Redis(env.REDIS_URL, {
 let connected = false;
 
 redisClient.on("error", (error) => {
-  console.log("Redis Client Error", error);
+  console.error("Redis client error", error);
 });
 
 async function ensureConnected(): Promise<void> {
@@ -29,5 +29,10 @@ export const redis = {
     await ensureConnected();
     return redisClient.set(key, value);
   },
+  async close(): Promise<void> {
+    if (connected) {
+      await redisClient.quit();
+      connected = false;
+    }
+  },
 };
-
